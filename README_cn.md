@@ -130,12 +130,25 @@ If you want to contribute, please send us a pull request and we'll add it to our
   * Be sure to include [appropriate Metadata](#metadata) to enhance the plugin's entry on getbitbar.com
 
 ## Plugin API
-
   * To write a plugin, just write some form of executable script that outputs to the standard output.
   * Multiple lines will be cycled through over and over.
   * If your output contains a line consisting only of `---`, the lines below it will appear in the dropdown for that plugin, but won't appear in the menu bar itself.
   * Lines beginning with `--` will appear in submenus.
-    * Use `----` etc. for nested submenus. Two dashes per level of nesting.
+  * Use `----` etc. for nested submenus. Two dashes per level of nesting.
+
+#### 暂译
+  * 插件的开发，只是完成一些打印到标准输出的可执行脚本。
+  * 多行文本将会一遍遍的循环显示
+  * 如果输出中包含`---`，那么这一行以下的部分将会显示在插件的下拉列表中，而不会显示在菜单栏。
+  * 头部为`--`的行，将会显示在子菜单中
+  * 以`----`举例，嵌入式子菜单。两个短横线代表一个嵌入层
+  * 输出的行之中可以包含 `|` 来分割标题和其他参数，例如：
+    * `href=..` 使当前的项可以被点击，在浏览器中打开响应的地址
+    * `color=..` 来改变标题颜色。例如：`color=red` or `color=#ff0000`
+    * `font=..` 来改变字体。例如：`font=UbuntuMono-Bold`
+    * `size=..` 来改变字体大小。例如：`size=12`
+    * `bash=..` to make the item run a given script terminal with your script e.g. `bash=/Users/user/BitBar_Plugins/scripts/nginx.restart.sh` if there are spaces in the file path you will need quotes e.g. `bash="/Users/user/BitBar Plugins/scripts/nginx.restart.sh"`
+
   * Your lines might contain `|` to separate the title from other parameters, such as...
     * `href=..` to make the item clickable
     * `color=..` to change their text color. eg. `color=red` or `color=#ff0000`
@@ -313,7 +326,7 @@ Anything that can write to standard out is supported, but here is a list that ha
    - Status: Working
    - Output: `echo 'your string here'`
    - Notes
-      - Add shebang `#!/usr/bin/php` 
+      - Add shebang `#!/usr/bin/php`
    - Utilities:
-      - BitBar PHP Formatter - <https://github.com/SteveEdson/bitbar-php>  
+      - BitBar PHP Formatter - <https://github.com/SteveEdson/bitbar-php>
 
